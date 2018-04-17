@@ -39,11 +39,12 @@ class EventsController < ApplicationController
   end
 
   def destroy
+
     @event.destroy
   end
 
   def add_guest
-    @@ids << User.find_by(fullname: params[:guest]).id
+    @@ids << User.find_by(first_name: params[:guest]).id
     @users = User.find(@@ids)
     render :new
     # redirect_to new_event_path
