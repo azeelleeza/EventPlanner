@@ -11,11 +11,13 @@
 
   <body>
     <header>
+
       <div class="banner">
         <a href="/">Saturdaze</a>
       <div>
       <% if current_user %>
       <% if current_user.email == "admin@gmail.com"  %>
+
       <nav class="admin_menu">
       <ul>
         <li><%= link_to 'Manage Events', events_path %></li>
@@ -23,7 +25,7 @@
         <li><%= link_to 'Manage Amenities', amenities_path %></li>
 
         <li><%= link_to 'Manage Users' %></li>
-        <li><%= link_to 'Sales Report' %></li>
+        <li><%= link_to 'Sales Report', sales_path %></li>
       </ul>
       </nav>
       <% end %>
