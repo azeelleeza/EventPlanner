@@ -2,12 +2,6 @@ class EventsController < ApplicationController
   #before_action :require_login
   before_action :set_event, only: [:show,:edit,:update,:destroy]
 
-
-  def index
-    @events = Event.all
-
-  end
-
   def create
     byebug
     @event = Event.create(event_params)
@@ -39,7 +33,7 @@ class EventsController < ApplicationController
   private
 
   def require_login
-    return head(:forbidden) unless session.include? :user_id
+    redirect_to '/login' and return unless session.include? :user_id
   end
 
   def set_event
